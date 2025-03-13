@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gestao.estoque.entity.ProdutoEntity;
+import com.gestao.estoque.dto.ProdutoDto;
 import com.gestao.estoque.service.ProdutoService;
 
 @RestController
@@ -22,17 +22,17 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @GetMapping
-    public List<ProdutoEntity> listarTudo() {
+    public List<ProdutoDto> listarTudo() {
         return produtoService.listarTudo();
     }
 
     @GetMapping("/id")
-    public Optional<ProdutoEntity> listarPorId(BigInteger id) {
+    public Optional<ProdutoDto> listarPorId(BigInteger id) {
         return produtoService.listarPorId(id);
     }
 
     @PostMapping
-    public ProdutoEntity salvar(ProdutoEntity produto) {
+    public ProdutoDto salvar(ProdutoDto produto) {
         return produtoService.salvar(produto);
     }
 
